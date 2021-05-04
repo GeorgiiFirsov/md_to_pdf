@@ -1,0 +1,17 @@
+name: md_to_pdf
+version: "0.1"
+author: GeorgyFirsov <gfirsov007@gmail.com>
+about: Converts a markdown formatted file into pretty pdf
+args:
+    - input:
+        short: i
+        long: input
+        about: Path to the input file
+        takes_value: true
+        index: 1
+    - output:
+        short: o
+        long: output
+        about: Path to the output file to be created
+        takes_value: true
+        index: 2
