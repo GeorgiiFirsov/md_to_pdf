@@ -6,12 +6,12 @@ args:
     - input:
         short: i
         long: input
-        about: Path to the input file
+        help: Path to the input file
         takes_value: true
-        index: 1
+        value_name: markdown file
     - output:
         short: o
         long: output
-        about: Path to the output file to be created
+        help: Path to the output file to be created
         takes_value: true
-        index: 2
+        value_name: PDF file
