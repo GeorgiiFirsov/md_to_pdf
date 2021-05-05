@@ -11,7 +11,7 @@ use crate::common::{CANNOT_INIT_PDF_APP, CANNOT_RENDER_PDF,
 
 
 pub(crate)
-fn compose_pdf(filename: &str, html_content: &str) {
+fn convert_html_to_pdf(filename: &str, html_content: &str) {
     let pdf_app = pdf::PdfApplication::new()
         .expect(CANNOT_INIT_PDF_APP);
 

@@ -15,7 +15,7 @@ const CSS_STYLE: &'static str = include_str!("../styles/pretty_pdf.css");
 
 
 pub(crate)
-fn parse_markdown_to_pretty_html(filename: &str) -> String {
+fn convert_markdown_to_pretty_html(filename: &str) -> String {
     //
     // Read markdown content and convert it into HTML
     //
