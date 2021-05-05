@@ -12,7 +12,8 @@ extern crate tracing;
 use clap::{App, load_yaml};
 use tracing::{error, debug, Level};
 
-use process_markdown::markdown_to_tree;
+use process_markdown::parse_markdown_to_pretty_html;
+use compose_pdf::compose_pdf;
 use common::{INCORRECT_INPUT_FILE, INCORRECT_OUTPUT_FILE,
              DEFAULT_MD_NAME, DEFAULT_PDF_NAME,
              MD_EXTENSION, PDF_EXTENSION, CANNOT_SET_TRACE_SUBSCRIBER};
@@ -64,5 +65,6 @@ fn main() {
     // Parse markdown and compose PDF
     //
 
-    markdown_to_tree(&input_file);
+    let html = parse_markdown_to_pretty_html(&input_file);
+    compose_pdf(output_file, html.as_str());
 }
