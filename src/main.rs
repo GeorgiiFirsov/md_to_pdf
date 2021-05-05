@@ -24,7 +24,8 @@ fn main() {
     //
 
     let subscriber = tracing_subscriber::fmt()
-        .with_max_level(Level::DEBUG).finish();
+        .with_max_level(Level::DEBUG)
+        .finish();
 
     tracing::subscriber::set_global_default(subscriber)
         .expect(CANNOT_SET_TRACE_SUBSCRIBER);
@@ -36,8 +37,11 @@ fn main() {
     let yaml_cli_config = load_yaml!("../config/cli.yaml");
     let matches = App::from(yaml_cli_config).get_matches();
 
-    let input_file = matches.value_of("input").unwrap_or(DEFAULT_MD_NAME);
-    let output_file = matches.value_of("output").unwrap_or(DEFAULT_PDF_NAME);
+    let input_file = matches.value_of("input")
+        .unwrap_or(DEFAULT_MD_NAME);
+
+    let output_file = matches.value_of("output")
+        .unwrap_or(DEFAULT_PDF_NAME);
 
     //
     // Verify their correctness
