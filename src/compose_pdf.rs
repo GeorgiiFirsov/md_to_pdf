@@ -1,10 +1,6 @@
 // This file contains PDF renderer implementation
 //
 
-extern crate wkhtmltopdf;
-extern crate tracing;
-
-
 use wkhtmltopdf::pdf;
 use tracing::{debug, info};
 

@@ -6,7 +6,11 @@ mod compose_pdf;
 mod common;
 
 extern crate clap;
+extern crate regex;
+extern crate base64;
+extern crate comrak;
 extern crate tracing;
+extern crate wkhtmltopdf;
 
 
 use clap::{App, load_yaml};

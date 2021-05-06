@@ -17,6 +17,8 @@ h3 {
     font-style: normal;
     font-weight: lighter;
     font-size: 24px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 h4 {
@@ -24,6 +26,8 @@ h4 {
     font-style: normal;
     font-weight: lighter;
     font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 h5 {
@@ -31,6 +35,8 @@ h5 {
     font-style: normal;
     font-weight: lighter;
     font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 h6 {
@@ -38,6 +44,23 @@ h6 {
     font-style: normal;
     font-weight: lighter;
     font-size: 22px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.header_sign {
+    color: #b6b6b6;
+    font-size: 22px;
+}
+
+.header_sign_num {
+    color: #b6b6b6;
+    font-size: 15px;
+    padding-right: 5px;
+}
+
+p {
+    font-family: sans-serif;
 }
 
 ul {
@@ -46,7 +69,7 @@ ul {
 
 ul li::before {
     content: "\2022";  /* bullet */
-    color: deepskyblue;
+    color: #d75a64;
     font-weight: bold;
     display: inline-block;
     width: 1em;
@@ -60,7 +83,7 @@ ol {
 
 ol li::before {
     content: '.'counter(li);
-    color: deepskyblue;
+    color: #d75a64;
     display: inline-block;
     width: 1em;
     margin-left: -1.5em;
@@ -77,16 +100,77 @@ li {
     margin-left: -25px;
 }
 
+img {
+    margin-bottom: -5px;
+}
+
+a {
+    text-decoration-color: #dd4c4f;
+    color: #dd4c4f;
+}
+
+.link_bracket {
+    color: #b4b4b4;
+}
+
 .underlined_text {
     text-decoration: underline;
+    text-decoration-color: #d7565f;
 }
 
 .crossed_out_text {
     text-decoration: line-through;
+    text-decoration-color: #8c8c8c;
+    color: #8c8c8c;
 }
 
 .quote {
-    border-left: 2px solid deepskyblue;
+    border-left: 2px solid #e28c93;
     padding-left: 5px;
     margin-left: 0;
+}
+
+.tag {
+    color: white;
+    background-color: #a7b0b3;
+    border-radius: 20px;
+    padding: 8px;
+    display: inline-block;
+}
+
+.tag_ns {
+    color: #d9e0e5;
+}
+
+.mark {
+    color: #4c4d49;
+    background-color: #d3ffa3;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: inline-block;
+}
+
+.mark_dots {
+    color: #91d44d;
+}
+
+.code_backtick {
+    color: #bdbebe;
+}
+
+.code_multiline {
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    background-color: #fbfbfb;
+    padding: 5px 15px;
+    border-radius: 2px;
+    border: 1px solid #dddddd;
+    display: block;
+}
+
+.code_singleline {
+    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    padding: 5px;
+    background-color: #fbfbfb;
+    border-radius: 2px;
+    border: 1px solid #dddddd;
 }
