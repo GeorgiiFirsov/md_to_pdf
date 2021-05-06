@@ -16,6 +16,14 @@ const CSS_STYLE: &'static str = include_str!("../styles/pretty_pdf.css");
 const LINK_PICTURE: &'static [u8] = include_bytes!("../resources/link.png");
 const LINK_PICTURE_BASE64_TAG: &'static str = "__link_base64_tag__";
 
+// Binary image of unchecked task and token to be replaced with base64 encoded picture data
+const UNCHECKED_TASK_PICTURE: &'static [u8] = include_bytes!("../resources/task_unchecked.png");
+const UNCHECKED_TASK_PICTURE_BASE64_TAG: &'static str = "__unchecked_task_base64_tag__";
+
+// Binary image of checked task and token to be replaced with base64 encoded picture data
+const CHECKED_TASK_PICTURE: &'static [u8] = include_bytes!("../resources/task_checked.png");
+const CHECKED_TASK_PICTURE_BASE64_TAG: &'static str = "__checked_task_base64_tag__";
+
 // Mapping between initial tokens in HTML and their replacements
 const TOKEN_MAPPING: &'static [(&'static str, &'static str)] = &[
     ("<h1>(.*)</h1>",               "<h1><span class=\"header_sign\">H</span><span class=\"header_sign_num\">1</span>$1</h1>"),
@@ -41,6 +49,9 @@ const TOKEN_MAPPING: &'static [(&'static str, &'static str)] = &[
     ("</code></pre>",               "<span class=\"code_backtick\">```</span>\n</code></pre>"),
     ("<code>(.*)</code>",           "<code class=\"code_singleline\"><span class=\"code_backtick\">` </span>$1\
                                      <span class=\"code_backtick\"> `</span></code>"),
+    ("<li>\\[ \\] (.*)</li>",       "<li class=\"task_list\"><img src=\"data:image/gif;base64,__unchecked_task_base64_tag__\" width=20px height=20px /> $1</li>"),
+    ("<li>\\[x\\] (.*)</li>",       "<li class=\"task_list\"><img src=\"data:image/gif;base64,__checked_task_base64_tag__\" width=20px height=20px /> $1</li>"),
+    ("<li>",                        "<li class=\"common_list\">"),
 ];
 
 
@@ -67,15 +78,17 @@ pub(crate) fn convert_markdown_to_pretty_html(filename: &str) -> String {
     }
 
     //
-    // If necessary embed link picture as base64 into HTML
+    // If necessary embed link picture, unchecked and checked tasks pictures as base64 into HTML
     //
 
-    let link_picture_b64 = base64::encode(LINK_PICTURE);
-
-    debug!("Link picture in base64: {}", link_picture_b64);
-
     let re = Regex::new(LINK_PICTURE_BASE64_TAG).unwrap();
-    raw_html = re.replace_all(&raw_html, link_picture_b64.as_str()).to_string();
+    raw_html = re.replace_all(&raw_html, base64::encode(LINK_PICTURE)).to_string();
+
+    let re = Regex::new(UNCHECKED_TASK_PICTURE_BASE64_TAG).unwrap();
+    raw_html = re.replace_all(&raw_html, base64::encode(UNCHECKED_TASK_PICTURE)).to_string();
+
+    let re = Regex::new(CHECKED_TASK_PICTURE_BASE64_TAG).unwrap();
+    raw_html = re.replace_all(&raw_html, base64::encode(CHECKED_TASK_PICTURE)).to_string();
 
     info!("HTML tokens replaced with their styled analogues");
     debug!("Style: {}", CSS_STYLE);

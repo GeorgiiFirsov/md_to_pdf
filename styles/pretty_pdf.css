@@ -67,7 +67,7 @@ ul {
     list-style: none;
 }
 
-ul li::before {
+ul li.common_list::before {
     content: "\2022";  /* bullet */
     color: #d75a64;
     font-weight: bold;
@@ -126,7 +126,7 @@ a {
 
 .quote {
     border-left: 2px solid #e28c93;
-    padding-left: 5px;
+    padding-left: 13px;
     margin-left: 0;
 }
 
@@ -173,4 +173,9 @@ a {
     background-color: #fbfbfb;
     border-radius: 2px;
     border: 1px solid #dddddd;
+}
+
+.task_list {
+    margin-left: -3em;
+    padding: 4px 0;
 }
