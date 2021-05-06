@@ -1,0 +1,92 @@
+h1 {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 36px;
+}
+
+h2 {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 28px;
+}
+
+h3 {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 24px;
+}
+
+h4 {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 22px;
+}
+
+h5 {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 22px;
+}
+
+h6 {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 22px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li::before {
+    content: "\2022";  /* bullet */
+    color: deepskyblue;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+ol {
+    list-style: none;
+    counter-reset: li;
+}
+
+ol li::before {
+    content: '.'counter(li);
+    color: deepskyblue;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1.5em;
+    margin-right: 0.5em;
+    text-align: right;
+    direction: rtl
+}
+
+ol li {
+    counter-increment: li;
+}
+
+li {
+    margin-left: -25px;
+}
+
+.underlined_text {
+    text-decoration: underline;
+}
+
+.crossed_out_text {
+    text-decoration: line-through;
+}
+
+.quote {
+    border-left: 2px solid deepskyblue;
+    padding-left: 5px;
+    margin-left: 0;
+}
