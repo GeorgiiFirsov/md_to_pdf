@@ -30,11 +30,11 @@ const TOKEN_MAPPING: &'static [(&'static str, &'static str)] = &[
     ("~\n~",                        "<br />"),
     ("<p>~~(.*)~~</p>",             "<p class=\"crossed_out_text\">$1</p>"),
     ("<p>~(.*)~</p>",               "<p class=\"underlined_text\">$1</p>"),
-    ("([^>])\n",                     "$1<br />\n"),
+    ("([^>])\n",                    "$1<br />\n"),
     ("</em>\n",                     "</em><br />\n"),
     ("</strong>\n",                 "</strong><br />\n"),
     ("<p>::(.*)::</p>",             "<p class=\"mark\"><span class=\"mark_dots\">::</span>$1<span class=\"mark_dots\">::</span></p>"),
-    ("<a href=(\".*\")>(.*)</a>",   "<span class=\"link_bracket\">[</span><a href=$1>$2</a><span class=\"link_bracket\">](</span>\
+    ("<a href=(\".*\")>(.*)</a>",   "<span class=\"link_bracket\">[ </span><a href=$1>$2</a><span class=\"link_bracket\"> ](</span>\
                                      <img src=\"data:image/gif;base64,__link_base64_tag__\" width=20px height=20px />\
                                      <span class=\"link_bracket\">)</span>"),
     ("<pre><code>",                 "<pre><code class=\"code_multiline\">\n<span class=\"code_backtick\">```</span>\n"),
@@ -44,8 +44,7 @@ const TOKEN_MAPPING: &'static [(&'static str, &'static str)] = &[
 ];
 
 
-pub(crate)
-fn convert_markdown_to_pretty_html(filename: &str) -> String {
+pub(crate) fn convert_markdown_to_pretty_html(filename: &str) -> String {
     //
     // Read markdown content and convert it into HTML
     //

@@ -145,9 +145,9 @@ a {
 .mark {
     color: #4c4d49;
     background-color: #d3ffa3;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding: 4px 2px;
     display: inline-block;
+    font-weight: lighter;
 }
 
 .mark_dots {

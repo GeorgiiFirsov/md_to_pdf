@@ -8,8 +8,7 @@ use crate::common::{CANNOT_INIT_PDF_APP, CANNOT_RENDER_PDF,
                     CANNOT_SAVE_PDF};
 
 
-pub(crate)
-fn convert_html_to_pdf(filename: &str, html_content: &str) {
+pub(crate) fn convert_html_to_pdf(filename: &str, html_content: &str) {
     let pdf_app = pdf::PdfApplication::new()
         .expect(CANNOT_INIT_PDF_APP);
 
