@@ -72,7 +72,7 @@ pub(crate) fn convert_markdown_to_pretty_html(filename: &str) -> String {
     // Embed a styles into HTML
     //
 
-    for (token, replacement) in TOKEN_MAPPING.to_vec().iter() {
+    for (token, replacement) in TOKEN_MAPPING.iter() {
         let re = Regex::new(*token).unwrap();
         raw_html = re.replace_all(&raw_html, *replacement).to_string();
     }
