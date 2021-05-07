@@ -61,6 +61,7 @@ h6 {
 
 p {
     font-family: sans-serif;
+    line-height: 2em;
 }
 
 ul {
@@ -74,6 +75,7 @@ ul li.common_list::before {
     display: inline-block;
     width: 1em;
     margin-left: -1em;
+    line-height: 2em;
 }
 
 ol {
@@ -86,8 +88,7 @@ ol li::before {
     color: #d75a64;
     display: inline-block;
     width: 1em;
-    margin-left: -1.5em;
-    margin-right: 0.5em;
+    margin: 0.5em 0.5em 0.5em -1.5em;
     text-align: right;
     direction: rtl
 }
@@ -165,6 +166,8 @@ a {
     border-radius: 2px;
     border: 1px solid #dddddd;
     display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .code_singleline {
@@ -173,6 +176,7 @@ a {
     background-color: #fbfbfb;
     border-radius: 2px;
     border: 1px solid #dddddd;
+    line-height: 2em;
 }
 
 .task_list {
