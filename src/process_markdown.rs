@@ -26,29 +26,39 @@ const CHECKED_TASK_PICTURE_BASE64_TAG: &'static str = "__checked_task_base64_tag
 
 // Mapping between initial tokens in HTML and their replacements
 const TOKEN_MAPPING: &'static [(&'static str, &'static str)] = &[
+    /* Headers */
     ("<h1>(.*)</h1>",                   "<h1><span class=\"header_sign\">H</span><span class=\"header_sign_num\">1</span>$1</h1>"),
     ("<h2>(.*)</h2>",                   "<h2><span class=\"header_sign\">H</span><span class=\"header_sign_num\">2</span>$1</h2>"),
     ("<h3>(.*)</h3>",                   "<h3><span class=\"header_sign\">H</span><span class=\"header_sign_num\">3</span>$1</h3>"),
     ("<h4>(.*)</h4>",                   "<h4><span class=\"header_sign\">H</span><span class=\"header_sign_num\">4</span>$1</h4>"),
     ("<h5>(.*)</h5>",                   "<h5><span class=\"header_sign\">H</span><span class=\"header_sign_num\">5</span>$1</h5>"),
     ("<h6>(.*)</h6>",                   "<h6><span class=\"header_sign\">H</span><span class=\"header_sign_num\">6</span>$1</h6>"),
+    /* Tags */
     ("<p>#(.+)</p>",                    "<p class=\"tag\"><span class=\"tag_ns\">#</span>$1</p>"),
+    /* Quotes */
     ("blockquote",                      "blockquote class=\"quote\""),
+    /* Underlined and crossed out text */
     ("~~\n~~",                          "<br />"),
     ("~\n~",                            "<br />"),
     ("<p>~~(.*)~~</p>",                 "<p class=\"crossed_out_text\">$1</p>"),
     ("<p>~(.*)~</p>",                   "<p class=\"underlined_text\">$1</p>"),
+    /* Line endings */
     ("([^>])\n",                        "$1<br />\n"),
     ("</em>\n",                         "</em><br />\n"),
     ("</strong>\n",                     "</strong><br />\n"),
+    /* Marks */
     ("<p>::(.*)::</p>",                 "<p class=\"mark\"><span class=\"mark_dots\">::</span>$1<span class=\"mark_dots\">::</span></p>"),
+    /* Links */
     ("<a href=(\".*\")>(.*)</a>",       "<span class=\"link_bracket\">[ </span><a href=$1>$2</a><span class=\"link_bracket\"> ](</span>\
                                          <img src=\"data:image/gif;base64,__link_base64_tag__\" width=20px height=20px />\
                                          <span class=\"link_bracket\">)</span>"),
-    ("<pre><code( class=\"(.*)\")?>",   "<pre><code class=\"code_multiline $1\">\n<span class=\"code_backtick\">```</span>\n"),
-    ("</code></pre>",                   "<span class=\"code_backtick\">```</span>\n</code></pre>"),
-    ("(.*)<code>(.*)</code>(.*)",       "$1<code class=\"code_singleline\"><span class=\"code_backtick\">` </span>$2\
-                                         <span class=\"code_backtick\"> `</span></code>$3"),
+    /* Code snippets */
+    ("<pre><code( class=\"(.*)\")?>",   "<pre><span class=\"code_multiline\"> $2\n<span class=\"code_backtick\">```</span><br />\n"),
+    ("</code></pre>",                   "<span class=\"code_backtick\">```</span>\n</span></pre>"),
+    ("(.*)<code>(.*)</code>(.*)",       "$1<span class=\"code_singleline\"><span class=\"code_backtick\">` </span>$2\
+                                         <span class=\"code_backtick\"> `</span></span>$3"),
+    ("</?pre>",                         ""),
+    /* Lists and tasks */
     ("<li>\\[ \\] (.*)</li>",           "<li class=\"task_list\"><img src=\"data:image/gif;base64,__unchecked_task_base64_tag__\" \
                                          width=20px height=20px /> $1</li>"),
     ("<li>\\[x\\] (.*)</li>",           "<li class=\"task_list\"><img src=\"data:image/gif;base64,__checked_task_base64_tag__\" \
@@ -101,11 +111,11 @@ pub(crate) fn convert_markdown_to_pretty_html(filename: &str) -> String {
 
     std::format!(
         "<head>\
-            <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\
-            <style type=\"text/css\">{}</style>\
-        </head>\
-        <body>\
-            {}\
-        </body>",
+             <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\
+             <style type=\"text/css\">{}</style>\
+         </head>\
+         <body>\
+             {}\
+         </body>",
         CSS_STYLE, &raw_html)
 }

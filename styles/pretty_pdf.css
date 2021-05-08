@@ -160,7 +160,7 @@ a {
 }
 
 .code_multiline {
-    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    font-family: monospace;
     background-color: #fbfbfb;
     padding: 5px 15px;
     border-radius: 2px;
@@ -168,15 +168,17 @@ a {
     display: block;
     margin-top: 1em;
     margin-bottom: 1em;
+    white-space: pre;
 }
 
 .code_singleline {
-    font-family: "Courier New", Courier, "Lucida Console", Monaco, monospace;
+    font-family: monospace;
     padding: 5px;
     background-color: #fbfbfb;
     border-radius: 2px;
     border: 1px solid #dddddd;
     line-height: 2em;
+    white-space: pre;
 }
 
 .task_list {
