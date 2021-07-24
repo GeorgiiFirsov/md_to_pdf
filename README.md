@@ -16,7 +16,7 @@ custom classes to them. This HTML document is converted into PDF file.
 ### Installing
 
 
-#### Linux
+#### Linux/macOS
 Depends on [wkhtmltopdf][1] that can be downloaded and installed with a package 
 manager as such as apt or pacman. After installing this dependency run:
 ```
