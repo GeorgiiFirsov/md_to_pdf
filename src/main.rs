@@ -366,8 +366,3 @@ fn load_stylesheets(opts: &Opts) -> Result<String, Box<dyn std::error::Error>> {
 
     Ok(stylesheets_html)
 }
-
-/*
-cargo run -- --no-annotate-headings --no-annotate-external-links --html out.html --frontmatter-delimiter="---" --master-template="macs/document.html.hbs" --additional-stylesheets="macs/styles.css" C:\Users\User\Workspace\macs-visitor-portal\USER_GUIDE.md
-C:\Users\User\Downloads\weasyprint-windows\dist\weasyprint.exe .\out.html out.pdf
- */
