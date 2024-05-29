@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        {{{styles}}}
+    </head>
+    <body>
+        <div class="coverpage">
+            <h1>Hello, World!</h1>
+            <span>{{content.0.frontmatter.subtitle}}</span>
+        </div>
+        {{#each content}}
+            <section>
+                <a href="#_{{number}}" aria-hidden="true" class="anchor" id="_{{number}}"></a>
+                {{{html}}}
+            </section>
+        {{/each}}
+    </body>
+</html>

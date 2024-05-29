@@ -1,0 +1,44 @@
+* {
+    box-sizing: border-box;
+}
+
+@page {
+    size: A4;
+    margin: 15mm 15mm 15mm 20mm;
+
+    @bottom-center {
+        content: "HelloWorld LLC ~ 123 Some St. ~ www.example.url"
+    }
+
+    @bottom-right {
+        content: "Page " counter(page);
+    }
+}
+
+@page:first {
+    margin: 0;
+
+    @bottom-center {
+        content: ""
+    }
+
+    @bottom-right {
+        content: "";
+    }
+}
+
+.coverpage {
+    display: block;
+    width: 210mm;
+    height: 297mm;
+    background: yellow;
+    text-align: center;
+    page-break-after: always;
+    padding-top: 100mm;
+}
+
+.coverpage h1 {
+    color: magenta;
+    font-size: 3rem;
+    font-weight: bolder;
+}
