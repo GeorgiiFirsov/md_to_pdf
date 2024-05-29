@@ -1,19 +1,29 @@
-h1 {
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
     font-family: sans-serif;
+}
+
+section {
+    margin: 0 2rem;
+}
+
+h1 {
     font-style: normal;
     font-weight: lighter;
     font-size: 36px;
 }
 
 h2 {
-    font-family: sans-serif;
     font-style: normal;
     font-weight: lighter;
     font-size: 28px;
 }
 
 h3 {
-    font-family: sans-serif;
     font-style: normal;
     font-weight: lighter;
     font-size: 24px;
@@ -22,7 +32,6 @@ h3 {
 }
 
 h4 {
-    font-family: sans-serif;
     font-style: normal;
     font-weight: lighter;
     font-size: 22px;
@@ -31,7 +40,6 @@ h4 {
 }
 
 h5 {
-    font-family: sans-serif;
     font-style: normal;
     font-weight: lighter;
     font-size: 22px;
@@ -40,7 +48,6 @@ h5 {
 }
 
 h6 {
-    font-family: sans-serif;
     font-style: normal;
     font-weight: lighter;
     font-size: 22px;
@@ -60,12 +67,12 @@ h6 {
 }
 
 p {
-    font-family: sans-serif;
     line-height: 2em;
 }
 
 ul {
     list-style: none;
+    page-break-inside: avoid;
 }
 
 ul li.common_list::before {
@@ -95,14 +102,6 @@ ol li::before {
 
 ol li {
     counter-increment: li;
-}
-
-li {
-    margin-left: -25px;
-}
-
-img {
-    margin-bottom: -5px;
 }
 
 a {
@@ -184,4 +183,88 @@ a {
 .task_list {
     margin-left: -3em;
     padding: 4px 0;
+}
+
+img {
+    margin: auto;
+    max-width: 100%;
+    max-height: 290mm;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+table td, table th {
+    border: 1px solid #a0a0a0;
+    padding: 0.2rem;
+}
+
+table tr:first-child th {
+    border-top: 0;
+    border-bottom: 1.5px solid #111;
+    padding-bottom: 0.5rem;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table tr td:first-child,
+table tr th:first-child {
+    border-left: 0;
+}
+
+table tr td:last-child,
+table tr th:last-child {
+    border-right: 0;
+}
+
+.document-navigation {
+    page-break-before: always;
+    page-break-after: always;
+    margin-left: 2rem;
+}
+
+.table-of-contents {
+    padding-left: 0;
+    font-size: 90%;
+}
+
+.table-of-contents > li > a {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #2f2f4f;
+}
+
+.table-of-contents a {
+    margin-top: 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+.table-of-contents > li ul a::after {
+    content: leader(". . . ") target-counter(attr(href url), page);
+}
+
+.table-of-contents > li ul {
+    list-style: decimal;
+    padding-left: 1rem;
+    font-weight: lighter;
+}
+
+.table-of-contents > li > ul {
+    font-weight: bold;
+}
+
+.table-of-contents > li > ul > li > ul ul {
+    list-style: lower-latin;
+    font-weight: lighter;
+    color: #7f7f7f;
+}
+
+.page-break {
+    page-break-before: always;
 }
